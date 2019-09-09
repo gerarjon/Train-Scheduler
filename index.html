@@ -4,13 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- CSS -->
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import materialize.css -->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"  media="screen,projection"/>
+    <!-- Extra CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Train Scheduler</title>
 </head>
 <body>
-    
-    <!-- JavaScript -->
+    <header>
+        <!-- Main Content Nav -->
+        <nav class="top-nav blue lighten-1">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="row">
+                        <div class="col s12 m10 offset-m2">
+                            <h1 class="header center">Schedule</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Fixed Side Navbar -->
+        <ul id="nav-mobile" class="sidenav sidenav-fixed" style="transform: translateX(-105%)">
+            <!-- Logo -->
+            <li class="logo item">
+                <div class="logo-container center">
+                        <a href="index.html" id="logo-container" class="brand-logo"><img src="assets/images/gerar-curly-4k-small.png" alt="Gerar curly"></a>
+                </div>
+            </li>
+            <!-- Forms -->
+            <h4 class="item">Add a Train <i class="material-icons">train</i></h4>
+            <li class="item">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="train-name" class="validate">
+                            <label for="train-name">Train Name</label>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <li class="item">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="destination" class="validate">
+                            <label for="destination">Destination</label>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <li class="item">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="first-train" class="validate">
+                            <label for="first-train">First Train Time (HH:mm)</label>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <li class="item">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input type="text" id="frequency" class="validate">
+                            <label for="frequency">Frequency (min)</label>
+                        </div>
+                    </div>
+                </form>
+            </li>
+            <div class="item">
+                <button class="btn-large waves-effect waves-light cyan accent-4" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </ul>
+        <!-- Side nav menu icon -->
+        <div class="container"><a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m10 offset-m2">
+                    <div id="right" class="section scrollspy">
+                        <table class="highlight responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>Train Name</th>
+                                        <th>Destination</th>
+                                        <th>Frequency (min)</th>
+                                        <th>Next Arrival</th>
+                                        <th>Minutes Away</th>
+                                        <th>Update Train Info</th>
+                                        <th>Delete Train Info</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Gerar Express</td>
+                                        <td>Gerar's House</td>
+                                        <td>3</td>
+                                        <td>09:00 AM</td>
+                                        <td>1</td>
+                                        <td><i class="material-icons">add</i></td>
+                                        <td><i class="material-icons">delete</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benjima</td>
+                                        <td>Japan</td>
+                                        <td>69</td>
+                                        <td>3:15 PM</td>
+                                        <td>25</td>
+                                        <td><i class="material-icons">add</i></td>
+                                        <td><i class="material-icons">delete</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Karl Express</td>
+                                        <td>Vietnam</td>
+                                        <td>10</td>
+                                        <td>7:30 PM</td>
+                                        <td>3</td>
+                                        <td><i class="material-icons">add</i></td>
+                                        <td><i class="material-icons">delete</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alex Shuttle</td>
+                                        <td>Numbani</td>
+                                        <td>1</td>
+                                        <td>12:01 PM</td>
+                                        <td>1</td>
+                                        <td><i class="material-icons">add</i></td>
+                                        <td><i class="material-icons">delete</i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer orange darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col m10 offset-m2">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Contact</h5>
+                        <p>Phone: 425-696-6969</p>
+                        <p>Email: gerarsuaverdez@gmail.com</p>
+                    </div>
+                    <div class="col l4 s12">
+                        <h5 class="white-text">Links</h5>
+                        <a href="#">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col m10 s12 offset-m2">
+                            © 2019 Gerar Suaverdez
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Materialize JS -->
+    <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+    <!-- JS to activate Materialize content -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- App JavaScript -->
     <script src="assets/js/app.js"></script>
 </body>
 </html>
