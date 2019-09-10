@@ -6,3 +6,8 @@ $(document).ready(function(){
 $(document).ready(function(){
     $('.scrollspy').scrollSpy();
   });
+
+// Modal
+$(document).ready(function(){
+    $('.modal').modal();
+});
