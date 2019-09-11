@@ -14,7 +14,6 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-
 // Add Train Button 
 $("#add-train").on("click", function() {
     event.preventDefault();
@@ -91,28 +90,21 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     console.log("tMinutes:", tMinutes);
     console.log("tArrival:", tArrival);
 
-    // Gets unique ID of firebase object
-    var newPostKey = firebase.database().ref().child('posts').push().key
-    console.log(newPostKey);
 
+    // Function that displays the table
+    var displayTable = () => {
+        $("#table > tbody").append(`<tr><td>${tName}</td><td>${tDestination}</td><td>${tFrequency}</td><td>${tArrival}</td><td>${tMinutes}</td></tr>`)
+    }
     // Add each train to the table
-    $("#table > tbody").append(`<tr><td>${tName}</td><td>${tDestination}</td><td>${tFrequency}</td><td>${tArrival}</td><td>${tMinutes}</td><td><i class="material-icons">add</i></td>
-    <td><i class="material-icons delete" data-key="${newPostKey}">delete</i></td></tr>`)
-
+    displayTable();
+    // Function that updates the table every minute
+    // var updateTable = () => {
+    //     setInterval(function() {
+            
+    //         console.log("updating train table at: " + moment().format("HH:mm:ss A"));
+    //         displayTable();
+    //     }, 1000);
+    // }
+    // updateTable();
 });
-
-var remove = (e) => {
-    e.preventDefault();
-    var key = $(this).data("key");
-    database.ref().child(key).remove();
-}
-
-$(document).on("click", ".delete", remove);
-
-// Delete train button 
-// $(document).on("click", ".delete", function() {
-//     var databaseId = $(this).attr("key");
-//     console.log(databaseId);
-    // database.ref().child(databaseId).remove();
-// })
 
